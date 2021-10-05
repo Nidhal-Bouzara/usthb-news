@@ -21,6 +21,13 @@
       "environment": [
         "web"
       ]
+    },
+    {
+      "file": "./start/events",
+      "environment": [
+        "repl",
+        "web"
+      ]
     }
   ],
   "providers": [

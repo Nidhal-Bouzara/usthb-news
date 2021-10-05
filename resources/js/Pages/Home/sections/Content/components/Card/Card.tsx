@@ -6,16 +6,18 @@ import './Card.scss'
 export interface NewsItem {
   id?: number
   title: string
-  posted: string | Date
+  posted: string
+  link: string
+  img?: string
 }
 
 const Card = (props: NewsItem) => {
-  const { title, posted } = props
+  const { title, posted, link } = props
   return (
-    <div className="news_card">
+    <a href={link} className="news_card">
       <h3 className="card_title">{title}</h3>
       <h4 className="card_date">{posted}</h4>
-    </div>
+    </a>
   )
 }
 

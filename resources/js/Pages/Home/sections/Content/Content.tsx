@@ -13,7 +13,7 @@ const Content = (props: ContentProps) => {
       <ul className="news_list">
         {news.slice(0, 12).map((item) => (
           <li className="news_item">
-            <Card title={item.title} posted={item.posted} />
+            <Card link={item.link} img={item.img} title={item.title} posted={item.posted} />
           </li>
         ))}
       </ul>

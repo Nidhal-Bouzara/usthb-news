@@ -19,37 +19,22 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import NewsPiece from 'App/Models/NewsPiece'
+import Event from '@ioc:Adonis/Core/Event'
 
-// types
-import { ResponseProps } from '@ioc:EidelLev/Inertia'
-import { NewsItem } from 'resources/js/Pages/Home/sections/Content/components/Card/Card'
-import { HomePageProps } from 'resources/js/Pages/Home/Home'
-import { NewsProps } from 'resources/js/Pages/News'
-
-Route.get('/', async ({ inertia }) => {
-  let news: NewsPiece[] | NewsItem[] = await NewsPiece.all()
-  news = news.map((item) => ({
-    id: item.id,
-    title: item.name,
-    posted: item.posted,
-  }))
-  const props: HomePageProps = {
-    news,
-  }
-  return inertia.render('Home/Home', props as unknown as ResponseProps)
+/*
+| Initiating the scraper task scheduler
+*/
+import schedule from 'node-schedule'
+schedule.scheduleJob('32 17 * * *', () => {
+  Event.emit('init:scrape', null)
 })
 
-Route.get('/news', async ({ inertia }) => {
-  const newsC = await new NewsPiece({ name: 'this is a new test', posted: new Date() })
-  const news = await NewsPiece.all()
-  const bongo = await newsC.save()
-  console.log(bongo.name, bongo.posted)
+Route.get('/', 'NewsPiecesController.index')
 
-  const props: NewsProps = {
-    news: news.map((NewsItem) => ({ title: NewsItem.name, posted: new Date(NewsItem.posted) })),
-  }
-  return inertia.render('News', props as unknown as ResponseProps)
+// Forcefully fire the scraping event when needed
+Route.get('/news/force-scrape', ({ response }) => {
+  Event.emit('init:scrape', null)
+  response.redirect().toRoute('/')
 })
 
 Route.get('/news/create', 'NewsPiecesController.create')
