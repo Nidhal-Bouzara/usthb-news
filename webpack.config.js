@@ -188,6 +188,7 @@ Encore.configureDevServerOptions((options) => {
 // })
 Encore.enableReactPreset()
 Encore.enableTypeScriptLoader()
+Encore.enableSassLoader()
 
 /*
 |--------------------------------------------------------------------------

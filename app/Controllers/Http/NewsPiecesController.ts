@@ -1,4 +1,3 @@
-import { Inertia } from '@inertiajs/inertia'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import NewsPieceFactory from 'Database/factories/NewsPieceFactory'
 

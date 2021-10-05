@@ -1,4 +1,6 @@
 {
   "assets/app.css": "http://localhost:8080/assets/app.css",
-  "assets/app.js": "http://localhost:8080/assets/app.js"
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/fonts/Pixeled.ttf": "http://localhost:8080/assets/fonts/Pixeled.0466f337.ttf",
+  "assets/images/logo-min.png": "http://localhost:8080/assets/images/logo-min.8407f457.png"
 }

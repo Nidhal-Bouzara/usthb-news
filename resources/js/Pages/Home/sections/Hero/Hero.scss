@@ -1,0 +1,60 @@
+.head_container { // should be hero_container but whatever
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+  margin-bottom: 5em;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    transform: translateY(9rem);
+    width: 50%;
+    height: 80%;
+    border: 8px solid white;
+    pointer-events: none;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 5rem;
+  font-family: pixeled;
+  font-weight: 400;
+}
+
+.description {
+  font-size: 1.5rem;
+  width: 30%;
+  text-align: center;
+}
+
+.image_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  .image {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  &::after {
+    content: '';
+    display: block;
+    height: 120%;
+    width: 120%;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(20px);
+  }
+}
