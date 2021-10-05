@@ -12,11 +12,18 @@ export interface NewsItem {
 }
 
 const Card = (props: NewsItem) => {
-  const { title, posted, link } = props
+  const { title, posted, link, img } = props
   return (
     <a href={link} className="news_card">
-      <h3 className="card_title">{title}</h3>
-      <h4 className="card_date">{posted}</h4>
+      {img && (
+        <div className="card_img_container">
+          <img src={img} className="card_img" alt="" />
+        </div>
+      )}
+      <div className="card_text">
+        <h3 className="card_title">{title}</h3>
+        <h4 className="card_date">{posted}</h4>
+      </div>
     </a>
   )
 }

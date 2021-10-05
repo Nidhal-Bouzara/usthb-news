@@ -36,5 +36,4 @@ Route.get('/news/force-scrape', ({ response }) => {
   Event.emit('init:scrape', null)
   response.redirect().toRoute('/')
 })
-
 Route.get('/news/create', 'NewsPiecesController.create')

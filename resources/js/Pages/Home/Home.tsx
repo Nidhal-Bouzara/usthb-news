@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../Shared/Footer/Footer'
 
 // components
 import Nav from '../../Shared/Nav/Nav'
@@ -17,6 +18,7 @@ const Home = (props: HomePageProps) => {
       <Nav />
       <Hero />
       <Content news={news} />
+      <Footer />
     </main>
   )
 }

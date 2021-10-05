@@ -15,6 +15,8 @@ const Hero = () => {
       <h1 className="title">USTHB NEWS</h1>
       <p className="description">
         We aggregate USTHB news from all over for you so you don't have to go around looking for it.
+        <br />
+        Come back daily to check for the latest updates.
       </p>
     </div>
   )

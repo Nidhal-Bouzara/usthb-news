@@ -2,9 +2,40 @@
   background-color: aliceblue;
   color: black;
   font-weight: 400;
-  padding: 2rem 4rem;
   border-radius: 10px;
   width: 100%;
+  text-decoration: none;
+  color: initial;
+  transition: all .1s ease;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #3452B5;
+    color: white;
+
+    .card_img_container {
+      background-color: #3452B5;
+    }
+
+    .card_img {
+      border-radius: 10px;
+      transform: scale(0.9);
+    }
+  }
+}
+
+.card_img_container {
+  position: relative;
+  height: fit-content;
+}
+.card_img {
+  width: 100%;
+  object-fit: cover;
+  transition: all .1s ease;
+}
+
+.card_text {
+  padding: 2rem 4rem;
 }
 
 .card_title {
