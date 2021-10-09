@@ -6,9 +6,224 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 10rem;
+  margin: 1rem 10rem 0;
 }
 
 .nav_item {
   cursor: default;
+}
+
+.nav_actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav_link {
+  color: white;
+  text-decoration: none;
+  transition: all .1s ease;
+  margin-right: 3rem;
+
+  &:hover {
+    color: var(--usthb_color);
+  }
+}
+
+.nav_button {
+  background-color: white;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: black;
+  padding: 0 1rem .5rem;
+  border-radius: 0;
+  transform: translateY(5px);
+  mix-blend-mode: screen;
+  position: relative;
+  z-index: 2;
+  transition: all .2s ease;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: calc(1rem - 5px);
+    background-color: var(--gradient_1);
+    right: 0;
+    transform: skew(-45deg) translate(calc(-.5rem + 2px) ,calc(-1rem + 5px));
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: calc(1rem - 5px);
+    height: calc(100% + 0.5px);
+    background-color: var(--gradient_2);
+    top: calc(-1rem + 9px);
+    right: calc(-1rem + 5px);
+    transform: skewY(-45deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease;
+  }
+
+
+  &:hover {
+    z-index: 3;
+    transform: translate(-1rem, 1rem);
+
+    &::before, &::after {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+  &:active {
+    background-color: var(--usthb_color);
+  }
+}
+
+// modal
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000050;
+  font-family: var(--text_font);
+  animation: fadeIn .18s ease;
+}
+
+.modal-container {
+  background-color: white;
+  padding: 3rem 5rem;
+  width: 400px;
+  height: 700px;
+  // border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px #00000025;
+  position: relative;
+  animation: popin 0.18s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  // border: 4px dashed black;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--gradient_2);
+    opacity: .5;
+    top: 0;
+    left: 0;
+    // border-radius: 20px;
+    animation: spinAdvanced 5s ease infinite;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--gradient_1);
+    opacity: .5;
+    top: 0;
+    left: 0;
+    // border-radius: 20px;
+    animation: spin 5s ease infinite;
+    z-index: -1;
+  }
+}
+
+.playCloseAnimation {
+  animation: popout 0.18s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+@keyframes fadeIn {
+  0% {
+    background-color: #00000000;
+  }
+  100% {
+    background-color: #00000050;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(40px, -40px);
+  }
+  25% {
+    transform: translate(40px, 30px);
+  }
+  50% {
+    transform: translate(-40px, 30px);
+  }
+  75% {
+    transform: translate(-40px, -40px);
+  }
+  100% {
+    transform: translate(40px, -40px);
+  }
+}
+
+@keyframes spinAdvanced {
+  0% {
+    transform: translate(-40px, 30px);
+  }
+  25% {
+    transform: translate(-40px, -40px);
+  }
+  50% {
+    transform: translate(40px, -40px);
+  }
+  75% {
+    transform: translate(40px, 30px);
+  }
+  100% {
+    transform: translate(-40px, 30px);
+  }
+}
+
+@keyframes popin {
+  0% {
+    transform: translate3d(1000px, -800px, -1400px) scale(.2);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes popout {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(1000px, -800px, -1400px) scale(.2);
+  }
+}
+
+.modal-title_cotnainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > div {
+    font-family: var(--display_font);
+    font-size: 2rem;
+  }
 }

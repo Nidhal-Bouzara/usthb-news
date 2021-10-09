@@ -10,11 +10,11 @@
   overflow: hidden;
 
   &:hover {
-    background-color: #3452B5;
+    background-color: var(--usthb_color);
     color: white;
 
     .card_img_container {
-      background-color: #3452B5;
+      background-color: var(--usthb_color);
     }
 
     .card_img {
@@ -32,6 +32,7 @@
   width: 100%;
   object-fit: cover;
   transition: all .1s ease;
+  will-change: transform, border;
 }
 
 .card_text {

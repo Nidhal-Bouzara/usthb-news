@@ -11,3 +11,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --usthb_color: #3452B5;
+  --gradient_1: #480048;
+  --gradient_2: #C04848;
+  --display_font: pixeled;
+  --text_font: Raleway;
+}
