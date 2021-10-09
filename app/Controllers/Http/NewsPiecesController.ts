@@ -1,12 +1,14 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ResponseProps } from '@ioc:EidelLev/Inertia'
-import NewsPiece from 'App/Models/NewsPiece'
+import ScrapeRun from 'App/Models/ScrapeRun'
 import { HomePageProps } from 'resources/js/Pages/Home/Home'
 import { NewsItem } from 'resources/js/Pages/Home/sections/Content/components/Card/Card'
 
 export default class NewsPiecesController {
   public async index({ inertia }: HttpContextContract) {
-    let news: NewsItem[] = await NewsPiece.all()
+    const lastRun = (await ScrapeRun.query().orderBy('id').limit(1).preload('scrapeResults'))[0]
+    let news: NewsItem[] = lastRun.scrapeResults
+
     news = news.map((item) => ({
       id: item.id,
       title: item.title,
