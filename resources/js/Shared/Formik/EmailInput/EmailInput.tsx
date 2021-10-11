@@ -1,11 +1,20 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import { SharedFieldProps, SharedLabelProps } from '../types'
+import ErrorComponent from '../ErrorComponent'
+import { SharedErrorProps, SharedFieldProps, SharedLabelProps } from '../types'
 
-export type EmailInputProps = SharedFieldProps & SharedLabelProps
+export type EmailInputProps = SharedFieldProps & SharedLabelProps & SharedErrorProps
 
 const EmailInput = (props: EmailInputProps) => {
-  const { name, label, id, fieldClassname = '', required = false, labelClassname = '' } = props
+  const {
+    name,
+    label,
+    id,
+    fieldClassname = '',
+    required = false,
+    labelClassname = '',
+    errorClassname = '',
+  } = props
   return (
     <>
       <label htmlFor={id ?? name} className={labelClassname}>
@@ -18,7 +27,10 @@ const EmailInput = (props: EmailInputProps) => {
         className={fieldClassname}
         required={required}
       />
-      <ErrorMessage name={name} />
+      <ErrorMessage
+        render={(message) => <ErrorComponent className={errorClassname} message={message} />}
+        name={name}
+      />
     </>
   )
 }

@@ -20,6 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 import Event from '@ioc:Adonis/Core/Event'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 /*
 | Initiating the scraper task scheduler
@@ -37,7 +38,19 @@ Route.get('/news/force-scrape', ({ response }) => {
   response.redirect().toRoute('/')
 })
 
-Route.post('/login', ({ request, response }) => {
-  console.log(request.body())
+Route.post('/login', async ({ request, response }) => {
+  const loginPostSchema = schema.create({
+    email: schema.string({ trim: true }, [
+      rules.email(),
+      rules.unique({ table: 'users', column: 'email' }),
+    ]),
+    password: schema.string({ trim: true }, [rules.required(), rules.minLength(10)]),
+    first_name: schema.string.optional({ trim: true }),
+    last_name: schema.string.optional({ trim: true }, [rules.requiredIfExists('first_name')]),
+  })
+
+  const payload = await request.validate({ schema: loginPostSchema })
+
+  console.log(payload)
   response.redirect('/')
 })

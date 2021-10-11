@@ -9,3 +9,7 @@ export interface SharedLabelProps {
   required?: boolean
   labelClassname?: string
 }
+
+export interface SharedErrorProps {
+  errorClassname?: string
+}

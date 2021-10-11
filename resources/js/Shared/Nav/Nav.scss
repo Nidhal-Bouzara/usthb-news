@@ -107,14 +107,11 @@
 
 .modal-container {
   background-color: white;
-  padding: 3rem 5rem;
+  padding: 3rem 5rem 8rem;
   width: 400px;
-  height: 700px;
-  // border-radius: 20px;
   box-shadow: 5px 5px 5px 5px #00000025;
   position: relative;
   animation: popin 0.18s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-  // border: 4px dashed black;
   display: flex;
   flex-direction: column;
 
@@ -128,7 +125,6 @@
     opacity: .5;
     top: 0;
     left: 0;
-    // border-radius: 20px;
     animation: spinAdvanced 5s ease infinite;
     z-index: -1;
   }
@@ -143,7 +139,6 @@
     opacity: .5;
     top: 0;
     left: 0;
-    // border-radius: 20px;
     animation: spin 5s ease infinite;
     z-index: -1;
   }
@@ -225,5 +220,41 @@
   & > div {
     font-family: var(--display_font);
     font-size: 2rem;
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--text_font);
+  font-size: 1.3rem;
+}
+
+.input-error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  padding: .3rem .5rem;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: .4rem 0;
+  font-size: 1.3rem;
+  border: 1px solid #4F4F4F;
+  background-color: transparent;
+  margin-top: 1.5rem;
+  font-family: var(--text_font);
+  cursor: pointer;
+  transition: all .1s ease;
+
+  &:hover {
+    background-color: #4F4F4F;
+    color: white;
   }
 }

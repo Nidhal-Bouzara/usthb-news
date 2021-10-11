@@ -1,13 +1,20 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import { SharedFieldProps, SharedLabelProps } from '../types'
+import ErrorComponent from '../ErrorComponent'
+import { SharedErrorProps, SharedFieldProps, SharedLabelProps } from '../types'
 
-export type PasswordInputProps = SharedFieldProps & SharedLabelProps
+export type PasswordInputProps = SharedFieldProps & SharedLabelProps & SharedErrorProps
 
 const PasswordInput = (props: PasswordInputProps) => {
-  const { name, label, id, required = false, fieldClassname = '', labelClassname = '' } = props
-  console.log(required)
-
+  const {
+    name,
+    label,
+    id,
+    required = false,
+    fieldClassname = '',
+    labelClassname = '',
+    errorClassname = '',
+  } = props
   return (
     <>
       <label htmlFor={id ?? name} className={labelClassname}>
@@ -20,7 +27,10 @@ const PasswordInput = (props: PasswordInputProps) => {
         className={fieldClassname}
         required={required}
       />
-      <ErrorMessage name={name} />
+      <ErrorMessage
+        name={name}
+        render={(message) => <ErrorComponent className={errorClassname} message={message} />}
+      />
     </>
   )
 }

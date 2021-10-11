@@ -1,17 +1,9 @@
 import { Dialog } from '@headlessui/react'
-// import { Inertia } from '@inertiajs/inertia'
 import React, { useRef, useState } from 'react'
-// import FormControl from '../Formik/FormControl'
-import FormSkeleton from '../Formik/FormSkeleton'
-import * as yup from 'yup'
 
 // styles
 import './Nav.scss'
-
-interface LoginCredentials {
-  email: string
-  password: string
-}
+import LoginForm from './components/LoginForm/LoginForm'
 
 const Nav = () => {
   const modalRef = useRef() as React.MutableRefObject<HTMLInputElement>
@@ -21,11 +13,6 @@ const Nav = () => {
   const handleClick = () => {
     setOpenModal((state) => !state)
   }
-
-  const loginSchema = new yup.ObjectSchema({
-    email: yup.string().email('Must be a valid email').required('This field is required'),
-    password: yup.string().required('Must be a valid password'),
-  })
 
   return (
     <div>
@@ -61,22 +48,7 @@ const Nav = () => {
           <Dialog.Title className="modal-title_cotnainer">
             <div>Sign In</div>
           </Dialog.Title>
-          <div>
-            <FormSkeleton<LoginCredentials>
-              initialValues={{
-                email: '',
-                password: '',
-              }}
-              onSubmit={(values) => {
-                console.log(values)
-              }}
-              validationSchema={loginSchema}
-            >
-              {/* <FormControl control="email" name="email" label="Email" />
-              <FormControl control="password" name="password" label="Password" />
-              <button type="submit">Login</button> */}
-            </FormSkeleton>
-          </div>
+          <LoginForm />
         </div>
       </Dialog>
     </div>
