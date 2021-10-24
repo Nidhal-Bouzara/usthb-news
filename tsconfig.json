@@ -12,7 +12,11 @@
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
-    "lib": ["DOM.Iterable", "DOM", "ES2016"],
+    "lib": [
+      "DOM.Iterable",
+      "DOM",
+      "ES2016"
+    ],
     "paths": {
       "App/*": [
         "./app/*"
@@ -34,7 +38,8 @@
       "@adonisjs/view",
       "@adonisjs/shield",
       "@eidellev/inertia-adonisjs",
-      "@adonisjs/lucid"
+      "@adonisjs/lucid",
+      "@adonisjs/auth"
     ]
   }
 }
