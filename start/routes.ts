@@ -26,7 +26,6 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 | Initiating the scraper task scheduler
 */
 import schedule from 'node-schedule'
-import Encryption from '@ioc:Adonis/Core/Encryption'
 schedule.scheduleJob('32 17 * * *', () => {
   Event.emit('init:scrape', null)
 })
@@ -53,6 +52,6 @@ Route.post('/login', async ({ request, auth, response }) => {
 
   const payload = await request.validate({ schema: loginPostSchema })
   const resp = await auth.attempt(payload.email, payload.password)
-  console.log('🚀 ~ file: routes.ts ~ line 56 ~ Route.post ~ resp', resp)
+  console.log(resp);
   response.redirect('/')
 })

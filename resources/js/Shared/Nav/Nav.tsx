@@ -1,9 +1,12 @@
 import { Dialog } from '@headlessui/react'
 import React, { useRef, useState } from 'react'
+import github from '../../../images/github.svg'
+import phone from '../../../images/phone.svg'
+import email from '../../../images/email.svg'
+// import LoginForm from './components/LoginForm/LoginForm'
 
 // styles
 import './Nav.scss'
-import LoginForm from './components/LoginForm/LoginForm'
 
 const Nav = () => {
   const modalRef = useRef() as React.MutableRefObject<HTMLInputElement>
@@ -24,7 +27,7 @@ const Nav = () => {
               NidhalB
             </a>
             <button onClick={handleClick} className="nav_button">
-              Log In
+              Reach Me!
             </button>
           </div>
         </li>
@@ -46,9 +49,14 @@ const Nav = () => {
       >
         <div className={`modal-container ${InitiateClose && 'playCloseAnimation'}`}>
           <Dialog.Title className="modal-title_cotnainer">
-            <div>Sign In</div>
+            <div>My Links:</div>
           </Dialog.Title>
-          <LoginForm />
+          <ul className="contact_list">
+            <li className="contact_list_item"><a href="https://github.com/nidhal-bouzara"><img src={github} alt="https://github.com/nidhal-bouzara" /></a></li>
+            <li className="contact_list_item"><a href="tel:+213541645765"><img src={phone} alt="+213541645765" /></a></li>
+            <li className="contact_list_item"><a href="mailto:nidhalanis.bouzara@gmail.com"><img src={email} alt="nidhalanis.bouzara@gmail.com" /></a></li>
+          </ul>
+          {/* <LoginForm /> */}
         </div>
       </Dialog>
     </div>

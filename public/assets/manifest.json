@@ -2,5 +2,9 @@
   "assets/app.css": "http://localhost:8080/assets/app.css",
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/fonts/Pixeled.ttf": "http://localhost:8080/assets/fonts/Pixeled.0466f337.ttf",
-  "assets/images/logo-min.png": "http://localhost:8080/assets/images/logo-min.8407f457.png"
+  "assets/images/logo-min.png": "http://localhost:8080/assets/images/logo-min.8407f457.png",
+  "assets/app.svg": "http://localhost:8080/assets/images/phone.f44c7f40.svg",
+  "assets/images/phone.svg": "http://localhost:8080/assets/images/phone.f44c7f40.svg",
+  "assets/images/github.svg": "http://localhost:8080/assets/images/github.83780314.svg",
+  "assets/images/email.svg": "http://localhost:8080/assets/images/email.15f0dc4c.svg"
 }
