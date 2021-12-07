@@ -1,10 +1,6 @@
-import React, { HTMLAttributes, PropsWithChildren } from 'react'
+import React from 'react'
 
-interface ErrorComponentProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
-  message?: string
-}
-
-const ErrorComponent = (props: ErrorComponentProps) => {
+const ErrorComponent = (props: any) => {
   const { children, message, ...rest } = props
   if (children) {
     return <div {...rest}>{children}</div>
