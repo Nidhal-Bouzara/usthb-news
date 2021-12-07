@@ -38,19 +38,20 @@ Route.get('/news/force-scrape', ({ response }) => {
   response.redirect().toRoute('/')
 })
 
-Route.post('/login', async ({ request, response }) => {
+Route.post('/login', async ({ request, auth, response }) => {
   const loginPostSchema = schema.create({
     email: schema.string({ trim: true }, [
       rules.email(),
-      rules.unique({ table: 'users', column: 'email' }),
+      rules.exists({
+        table: 'users',
+        column: 'email',
+      }),
     ]),
-    password: schema.string({ trim: true }, [rules.required(), rules.minLength(10)]),
-    first_name: schema.string.optional({ trim: true }),
-    last_name: schema.string.optional({ trim: true }, [rules.requiredIfExists('first_name')]),
+    password: schema.string({ trim: true }, [rules.required(), rules.minLength(8)]),
   })
 
   const payload = await request.validate({ schema: loginPostSchema })
-
-  console.log(payload)
+  const resp = await auth.attempt(payload.email, payload.password)
+  console.log(resp);
   response.redirect('/')
 })

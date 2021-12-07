@@ -1,7 +1,8 @@
 {
   "extends": "./node_modules/adonis-preset-ts/tsconfig",
   "include": [
-    "**/*"
+    "**/*",
+    "./custom.d.ts"
   ],
   "exclude": [
     "node_modules",
@@ -12,7 +13,11 @@
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
-    "lib": ["DOM.Iterable", "DOM", "ES2016"],
+    "lib": [
+      "DOM.Iterable",
+      "DOM",
+      "ES2016"
+    ],
     "paths": {
       "App/*": [
         "./app/*"
@@ -25,6 +30,9 @@
       ],
       "Database/*": [
         "./database/*"
+      ],
+      "Images/*": [
+        "./resources/images/*"
       ]
     },
     "types": [
@@ -34,7 +42,8 @@
       "@adonisjs/view",
       "@adonisjs/shield",
       "@eidellev/inertia-adonisjs",
-      "@adonisjs/lucid"
+      "@adonisjs/lucid",
+      "@adonisjs/auth"
     ]
   }
 }

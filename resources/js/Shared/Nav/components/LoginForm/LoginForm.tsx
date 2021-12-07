@@ -12,12 +12,6 @@ interface LoginCredentials {
 
 const LoginForm = () => {
   const { errors } = usePage().props
-  console.log(errors)
-
-  // const loginSchema = new yup.ObjectSchema({
-  //   email: yup.string().email('Must be a valid email').required('This field is required'),
-  //   password: yup.string().required('This field is required'),
-  // })
 
   const handleSubmit = (values: LoginCredentials) => {
     Inertia.post('/login', values as unknown as RequestPayload)

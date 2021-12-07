@@ -33,7 +33,7 @@ const FormSkeleton = <T,>(props: PropsWithChildren<FormikSkeletonProps<T>>) => {
     let changed = false
     if (keysOfNewErrors.length !== 0) {
       const newErrorsArray = keysOfNewErrors.map((key) => {
-        changed = errors[key] !== formErrorsKeys[key][0]
+        changed = errors[key] !== formErrors[key][0]
         return {
           key,
           value: formErrors[key][0],
